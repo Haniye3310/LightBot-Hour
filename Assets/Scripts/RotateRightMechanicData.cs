@@ -1,11 +1,16 @@
 using DG.Tweening;
+using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RotateRightMechanicData[Name]", menuName = "SO/RotateRightMechanicData")]
 public class RotateRightMechanicData : MechanicData
 {
-    public override void Move(Player player)
+    public  override Task Move(Player player)
     {
-        player.transform.DORotate(new Vector3(90, 0, 0), 0.1f);
+        float rotationAngle = 90f;
+        float rotationDuration = 1f;
+        Vector3 targetRotation = new Vector3(0f, player.transform.eulerAngles.y + rotationAngle, 0f);
+        var tween = player.transform.DORotate(targetRotation, rotationDuration);
+        return tween.Play().AsyncWaitForCompletion();
     }
 }

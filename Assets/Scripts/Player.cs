@@ -37,20 +37,17 @@ public class Player : MonoBehaviour
     }
     private void OnMechanicInOptionsClicked(MechanicData mechanicData) 
     {
-        Debug.Log("lll");
         _movements.Add(mechanicData);
     }
     private void OnMechanicInMainPanelClicked(MechanicData mechanicData) 
     {
         _movements.Remove(mechanicData);
     }
-    private void OnRunButtonClicked() 
+    private async void OnRunButtonClicked() 
     {
-        Debug.Log("GG");
         for(int i = 0;i< _movements.Count;i++) 
         {
-            _movements[i].Move(this);
-            Debug.Log("up");
+            await _movements[i].Move(this);
         }
     }
 }
