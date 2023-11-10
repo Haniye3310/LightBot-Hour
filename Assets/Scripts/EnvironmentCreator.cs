@@ -3,8 +3,7 @@ using UnityEngine;
 public class EnvironmentCreator : MonoBehaviour
 {
     [SerializeField] private SOChannelLevelData _onLevelBtnClicked;
-    [SerializeField] private GameObject _cubePrefab;
-    [SerializeField] private Material _blueMaterial;
+    [SerializeField] private Cube _cubePrefab;
     private void Awake()
     {
         _onLevelBtnClicked.Event.AddListener(OnLevelBtnClicked);
@@ -24,10 +23,10 @@ public class EnvironmentCreator : MonoBehaviour
             {
                 for(int k =0; k < Mathf.Abs(levelData.EnvironmentList[i].Data[j]); k++) 
                 {
-                    GameObject cube = Instantiate(_cubePrefab, pos, Quaternion.identity, transform);
+                    var cube = Instantiate(_cubePrefab, pos, Quaternion.identity, transform);
                     if (levelData.EnvironmentList[i].Data[j] < 0 && k == Mathf.Abs(levelData.EnvironmentList[i].Data[j]) - 1)
                     {
-                        cube.GetComponentInChildren<MeshRenderer>().material = _blueMaterial;
+                        cube.Target();
                     }
                     pos = new Vector3(pos.x, pos.y + scale.y, pos.z);
                 }
