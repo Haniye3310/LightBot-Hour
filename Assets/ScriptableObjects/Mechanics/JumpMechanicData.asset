@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afeb09b497706b5458fbbca2e81f1909, type: 3}
-  m_Name: 'MechanicData[Move]'
+  m_Script: {fileID: 11500000, guid: b3cd39c437f932040b55850b89073a3e, type: 3}
+  m_Name: JumpMechanicData
   m_EditorClassIdentifier: 
-  MechanicSprite: {fileID: -1765599375, guid: de3b6d0f64d14ad4b9252d10974fe312, type: 3}
+  MechanicSprite: {fileID: 1308058450, guid: de3b6d0f64d14ad4b9252d10974fe312, type: 3}
+  _cubePrefab: {fileID: 7468756960509782625, guid: 20b5a79fa5921944fac727271e547490, type: 3}

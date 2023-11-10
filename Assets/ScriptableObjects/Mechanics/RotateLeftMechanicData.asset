@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 903e90dab02916b4eaa3d0b1e9ea66cd, type: 3}
-  m_Name: SOChannelMechanicData
+  m_Script: {fileID: 11500000, guid: 46ec10ad3ab3b2c469599bd50ebf5f7c, type: 3}
+  m_Name: RotateLeftMechanicData
   m_EditorClassIdentifier: 
-  Event:
-    m_PersistentCalls:
-      m_Calls: []
+  MechanicSprite: {fileID: 1188113714, guid: de3b6d0f64d14ad4b9252d10974fe312, type: 3}
+  _cubePrefab: {fileID: 7468756960509782625, guid: 20b5a79fa5921944fac727271e547490, type: 3}

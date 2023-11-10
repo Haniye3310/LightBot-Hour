@@ -5,11 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private SOChannelLevelData _onLevelClicked;
-    [SerializeField] private GameObject _cube;
+    [SerializeField] private Cube _cube;
     [SerializeField] private SOChannel _onRunButtonClicked;
     [SerializeField] private SOChannelMechanicData _onMechanicInOptionsClicked;
     [SerializeField] private SOChannelMechanicData _onMechanicInMainPanelClicked;
-    private List<MechanicData> _movements;
+    private List<MechanicData> _movements = new List<MechanicData>();
     private void Awake()
     {
         _onLevelClicked.Event.AddListener(OnLevelBtnClicked);
@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     }
     private void OnMechanicInOptionsClicked(MechanicData mechanicData) 
     {
+        Debug.Log("lll");
         _movements.Add(mechanicData);
     }
     private void OnMechanicInMainPanelClicked(MechanicData mechanicData) 
@@ -45,9 +46,11 @@ public class Player : MonoBehaviour
     }
     private void OnRunButtonClicked() 
     {
+        Debug.Log("GG");
         for(int i = 0;i< _movements.Count;i++) 
         {
-            _movements[i].Move();
+            _movements[i].Move(this);
+            Debug.Log("up");
         }
     }
 }

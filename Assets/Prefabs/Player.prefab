@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3505409757540507090}
   - component: {fileID: 1656491646404728064}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: NoseCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,8 +117,9 @@ GameObject:
   - component: {fileID: 1920815660505537086}
   - component: {fileID: 8263408682620016977}
   - component: {fileID: 242891593624332193}
+  - component: {fileID: -8887356711663413886}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,3 +212,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-8887356711663413886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269865222502695698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddaba64620e1a74297c05d204076b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onLevelClicked: {fileID: 11400000, guid: 366d770da16b44848967f0e638a4fa0c, type: 2}
+  _cube: {fileID: 7468756960509782625, guid: 20b5a79fa5921944fac727271e547490, type: 3}
+  _onRunButtonClicked: {fileID: 11400000, guid: 27c61ae1e2b6ae548a6fb322e3f81ce6, type: 2}
+  _onMechanicInOptionsClicked: {fileID: 11400000, guid: 46fa4bd8bab10894aafc9ca84a23758c, type: 2}
+  _onMechanicInMainPanelClicked: {fileID: 11400000, guid: 3d6dafa5a1ab2b847aa061f5655033de, type: 2}

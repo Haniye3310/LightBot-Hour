@@ -349,25 +349,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &805380613 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2269865222502695698, guid: 202247215bd140145afb1603dfcdaeaa, type: 3}
-  m_PrefabInstance: {fileID: 3705017589264916314}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &805380618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805380613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ddaba64620e1a74297c05d204076b6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onLevelClicked: {fileID: 11400000, guid: 366d770da16b44848967f0e638a4fa0c, type: 2}
-  _cube: {fileID: 2008515778347518654, guid: 20b5a79fa5921944fac727271e547490, type: 3}
 --- !u!1 &849278152
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +361,7 @@ GameObject:
   - component: {fileID: 849278156}
   - component: {fileID: 849278155}
   - component: {fileID: 849278154}
+  - component: {fileID: 849278157}
   m_Layer: 5
   m_Name: RunButton
   m_TagString: Untagged
@@ -488,6 +470,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849278152}
   m_CullTransparentMesh: 1
+--- !u!114 &849278157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849278152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0123c785ba58248be5cf35bf82b6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _runBtn: {fileID: 849278154}
+  _onRunButtonClicked: {fileID: 11400000, guid: 27c61ae1e2b6ae548a6fb322e3f81ce6, type: 2}
 --- !u!1 &915444843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,17 +1034,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 785998533068363485, guid: 202247215bd140145afb1603dfcdaeaa, type: 3}
-      propertyPath: m_Name
-      value: NoseCube
-      objectReference: {fileID: 0}
     - target: {fileID: 2269865222502695698, guid: 202247215bd140145afb1603dfcdaeaa, type: 3}
       propertyPath: m_Name
       value: PlayerSphere
-      objectReference: {fileID: 0}
-    - target: {fileID: 2269865222502695698, guid: 202247215bd140145afb1603dfcdaeaa, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2749714240666728024, guid: 202247215bd140145afb1603dfcdaeaa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1093,10 +1081,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2269865222502695698, guid: 202247215bd140145afb1603dfcdaeaa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 805380618}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 202247215bd140145afb1603dfcdaeaa, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

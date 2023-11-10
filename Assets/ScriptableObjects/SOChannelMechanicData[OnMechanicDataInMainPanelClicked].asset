@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afeb09b497706b5458fbbca2e81f1909, type: 3}
-  m_Name: 'MechanicData[Jump]'
+  m_Script: {fileID: 11500000, guid: 903e90dab02916b4eaa3d0b1e9ea66cd, type: 3}
+  m_Name: 'SOChannelMechanicData[OnMechanicDataInMainPanelClicked]'
   m_EditorClassIdentifier: 
-  MechanicSprite: {fileID: 1308058450, guid: de3b6d0f64d14ad4b9252d10974fe312, type: 3}
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
