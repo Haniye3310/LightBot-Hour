@@ -15,12 +15,14 @@ public class MechanicsCreator : MonoBehaviour
     }
     private void OnLevelBtnClicked(LevelData levelData) 
     {
-        Vector3 pos = this.transform.position;
         for (int i = 0; i < levelData.AvailableMechanics.Length; i++) 
         {
-            var mechanic = Instantiate(_mechanicPrefab,pos,Quaternion.identity,this.transform);
-            mechanic.SetMechanicData(levelData.AvailableMechanics[i]);
-            pos = new Vector3(pos.x + _mechanicPrefab.GetComponent<RectTransform>().sizeDelta.x + 10f, pos.y,pos.z);
+            Mechanic.Instantiate(_mechanicPrefab,
+                                 this.transform.position,
+                                 Quaternion.identity,
+                                 this.transform,
+                                 levelData.AvailableMechanics[i],
+                                 false);
         }
     }
 }

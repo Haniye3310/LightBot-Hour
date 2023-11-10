@@ -1,16 +1,28 @@
+using System.Collections.Generic;
+using System.Net.Http.Headers;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private SOChannelLevelData _onLevelClicked;
     [SerializeField] private GameObject _cube;
+    [SerializeField] private SOChannel _onRunButtonClicked;
+    [SerializeField] private SOChannelMechanicData _onMechanicInOptionsClicked;
+    [SerializeField] private SOChannelMechanicData _onMechanicInMainPanelClicked;
+    private List<MechanicData> _movements;
     private void Awake()
     {
         _onLevelClicked.Event.AddListener(OnLevelBtnClicked);
+        _onRunButtonClicked.Event.AddListener(OnRunButtonClicked);
+        _onMechanicInOptionsClicked.Event.AddListener(OnMechanicInOptionsClicked);
+        _onMechanicInMainPanelClicked.Event.AddListener(OnMechanicInMainPanelClicked);
     }
     private void OnDisable()
     {
         _onLevelClicked.Event.RemoveListener(OnLevelBtnClicked);
+        _onRunButtonClicked.Event.RemoveListener(OnRunButtonClicked);
+        _onMechanicInOptionsClicked.Event.RemoveListener(OnMechanicInOptionsClicked);
+        _onMechanicInMainPanelClicked.Event.RemoveListener(OnMechanicInMainPanelClicked);
 
     }
     private void OnLevelBtnClicked(LevelData levelData) 
@@ -22,5 +34,20 @@ public class Player : MonoBehaviour
         this.transform.rotation = Quaternion.Euler( this.transform.rotation.eulerAngles.x,
                                                     (int)levelData.StartingPlayerRotation, 
                                                     this.transform.rotation.eulerAngles.z);
+    }
+    private void OnMechanicInOptionsClicked(MechanicData mechanicData) 
+    {
+        _movements.Add(mechanicData);
+    }
+    private void OnMechanicInMainPanelClicked(MechanicData mechanicData) 
+    {
+        _movements.Remove(mechanicData);
+    }
+    private void OnRunButtonClicked() 
+    {
+        for(int i = 0;i< _movements.Count;i++) 
+        {
+            _movements[i].Move();
+        }
     }
 }

@@ -135,3 +135,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 2067525085182762717}
   _btn: {fileID: 5902824164923810953}
+  _onMechanicInOptionsClicked: {fileID: 11400000, guid: 46fa4bd8bab10894aafc9ca84a23758c, type: 2}

@@ -6,28 +6,49 @@ public class Mechanic : MonoBehaviour
     private MechanicData _mechanicData;
     [SerializeField] private Image _image;
     [SerializeField] Button _btn;
-
-    public static Mechanic Instantiate(GameObject prefab, bool inMainPanel)
+    private bool _inMainPanel;
+    [SerializeField] private SOChannelMechanicData _onMechanicInOptionsClicked;
+    [SerializeField] private SOChannelMechanicData _onMechanicInMainPanelClicked;
+    public static Mechanic Instantiate(Mechanic prefab,Vector3 position,Quaternion rotation,Transform parent,MechanicData mechanicData ,bool inMainPanel)
     {
-        Instantiate(prefab, this.transform.position, Quaternion.identity, this.transform);
+        var mechanic = Instantiate(prefab, position , rotation, parent);
+        mechanic._inMainPanel = inMainPanel;
+        mechanic._mechanicData = mechanicData;
+        mechanic.SetSprite();
+        return mechanic;
     }
 
-    private void Awake()
+    private void Start()
     {
-        _btn.onClick.AddListener(OnMechanicClicked);
+        if (_inMainPanel) 
+        {
+            _btn.onClick.AddListener(OnMechanicInMainPanelClicked);
+        }
+        else 
+        {
+            _btn.onClick.AddListener(OnMechanicInOptionsClicked);
+        }
     }
     private void OnDisable()
     {
-        _btn.onClick.RemoveListener(OnMechanicClicked);
-    }
-    private void OnMechanicClicked()
-    {
+        if (_inMainPanel)
+        {
+            _btn.onClick.RemoveListener(OnMechanicInMainPanelClicked);
 
+        }
+        else
+        {
+            _btn.onClick.RemoveListener(OnMechanicInOptionsClicked);
+        }
     }
-    public void SetMechanicData(MechanicData mechanicData) 
+    private void OnMechanicInMainPanelClicked()
     {
-        _mechanicData = mechanicData;
-        SetSprite();
+        _onMechanicInMainPanelClicked.Event?.Invoke(_mechanicData);
+        Destroy(this.gameObject);
+    }
+    private void OnMechanicInOptionsClicked()
+    {
+        _onMechanicInOptionsClicked.Event?.Invoke(_mechanicData);
     }
     private void SetSprite() 
     {
