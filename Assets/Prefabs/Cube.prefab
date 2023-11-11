@@ -225,4 +225,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _blueMaterial: {fileID: 2100000, guid: c1be03ba2dc9a7d4086ba3c5be0f5d5a, type: 2}
+  _yellowMaterial: {fileID: 2100000, guid: 4e76e9633538fab40adcb6fb1cbabf17, type: 2}
   _innerCube: {fileID: 1703168776811665872}
+  _onLightClicked: {fileID: 11400000, guid: 842b0cc962d22a44d8b21f8629e9aa01, type: 2}

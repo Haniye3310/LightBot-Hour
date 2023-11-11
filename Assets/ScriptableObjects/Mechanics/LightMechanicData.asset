@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MechanicSprite: {fileID: 110140800, guid: de3b6d0f64d14ad4b9252d10974fe312, type: 3}
   _cubePrefab: {fileID: 7468756960509782625, guid: 20b5a79fa5921944fac727271e547490, type: 3}
+  _onLightClicked: {fileID: 11400000, guid: 842b0cc962d22a44d8b21f8629e9aa01, type: 2}
