@@ -27,4 +27,9 @@ public class Cube : MonoBehaviour
             )
             _innerCube.GetComponentInChildren<MeshRenderer>().material = _yellowMaterial;
     }
+    public bool IsBlue() 
+    {
+        if (_innerCube.GetComponentInChildren<MeshRenderer>().material.color == _blueMaterial.color) return true;
+        return false;
+    }
 }
