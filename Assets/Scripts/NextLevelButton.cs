@@ -1,17 +1,23 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static UnityEditor.PlayerSettings;
 
-public class NextLevelButoon : MonoBehaviour
+public class NextLevelButton : MonoBehaviour
 {
+    [SerializeField] IntVariable _currentLevel;
     [SerializeField] SOChannel _OnPlayCompleted;
+    [SerializeField] Button _btn;
     private void Awake()
     {
         _OnPlayCompleted.Event.AddListener(OnPlayCompleted);
+        _btn.onClick.AddListener(OnNextLevelButtonClicked);
         this.gameObject.SetActive(false);
     }
     private void OnDestroy()
     {
         _OnPlayCompleted.Event.RemoveListener(OnPlayCompleted);
+        _btn.onClick.RemoveListener(OnNextLevelButtonClicked);
     }
     private void OnPlayCompleted() 
     {
@@ -26,6 +32,7 @@ public class NextLevelButoon : MonoBehaviour
     }
     private void OnNextLevelButtonClicked() 
     {
-        
+        _currentLevel.Value++;
+        SceneManager.LoadScene(1);
     }
 }

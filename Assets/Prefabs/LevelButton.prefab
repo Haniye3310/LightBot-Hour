@@ -270,8 +270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelBtn: {fileID: 8306462235317367521}
-  _onLevelBtnClicked: {fileID: 11400000, guid: 366d770da16b44848967f0e638a4fa0c, type: 2}
   _text: {fileID: 8379853323838609796}
+  _currentLevelNumber: {fileID: 11400000, guid: d8dd3683f4db7844ea7269db2b94f50c, type: 2}
 --- !u!114 &1518418024153982876
 MonoBehaviour:
   m_ObjectHideFlags: 0

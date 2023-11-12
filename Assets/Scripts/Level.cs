@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Level : MonoBehaviour
 {
-    private LevelData _levelData;
     [SerializeField] private Button _levelBtn;
-    [SerializeField] private SOChannelLevelData _onLevelBtnClicked;
     [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private IntVariable _currentLevelNumber;
+    private int _level;
     private void Awake()
     {
         _levelBtn.onClick.AddListener(Level_OnClick);
@@ -16,14 +17,17 @@ public class Level : MonoBehaviour
     {
         _levelBtn.onClick.RemoveListener(Level_OnClick);
     }
+
     private void Level_OnClick()
     {
-        _onLevelBtnClicked.Event?.Invoke(_levelData);
+        Debug.Log("levelonclick");
+        _currentLevelNumber.Value = _level;
+        SceneManager.LoadScene(1);
     }
-    public void SetLevelData(LevelData levelData) 
+    public void SetLevelData(int levelIndex) 
     {
-        _levelData = levelData;
-        _text.text = levelData.LevelNumber.ToString();
+        _level = levelIndex +1;
+        _text.text = (levelIndex +1 ).ToString();
     }
 }
 

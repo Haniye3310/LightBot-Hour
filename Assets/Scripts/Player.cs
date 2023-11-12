@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private SOChannelLevelData _onLevelClicked;
+    [SerializeField] private IntVariable _currentLevelNumber;
+    [SerializeField] private LevelDataList _levels;
     [SerializeField] private Cube _cube;
     [SerializeField] private SOChannel _onRunButtonClicked;
     [SerializeField] private SOChannelMechanicData _onMechanicInOptionsClicked;
@@ -16,14 +17,13 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _OnRetryButtonClicked.Event.AddListener(OnRetryButtonClicked);
-        _onLevelClicked.Event.AddListener(OnLevelBtnClicked);
         _onRunButtonClicked.Event.AddListener(OnRunButtonClicked);
         _onMechanicInOptionsClicked.Event.AddListener(OnMechanicInOptionsClicked);
         _onMechanicInMainPanelClicked.Event.AddListener(OnMechanicInMainPanelClicked);
+        Init();
     }
     private void OnDisable()
     {
-        _onLevelClicked.Event.RemoveListener(OnLevelBtnClicked);
         _onRunButtonClicked.Event.RemoveListener(OnRunButtonClicked);
         _onMechanicInOptionsClicked.Event.RemoveListener(OnMechanicInOptionsClicked);
         _onMechanicInMainPanelClicked.Event.RemoveListener(OnMechanicInMainPanelClicked);
@@ -31,10 +31,18 @@ public class Player : MonoBehaviour
     }
     private void OnRetryButtonClicked() 
     {
-        OnLevelBtnClicked(_levelData);
+        Init();
+        Cube[] cubes = FindObjectsOfType<Cube>();
+
+        for (int i = 0; i < cubes.Length; i++)
+        {
+            if (cubes[i].IsLight()) cubes[i].Target();
+
+        }
     }
-    private void OnLevelBtnClicked(LevelData levelData) 
+    private void Init() 
     {
+        var levelData = _levels.List[_currentLevelNumber.Value - 1];
         int height =Mathf.Abs(levelData.EnvironmentList[levelData.StartingPlayerPosition.x].Data[levelData.StartingPlayerPosition.y]);
         this.transform.position = new Vector3Int(levelData.StartingPlayerPosition.x,
                                                  (height) * (int)_cube.transform.localScale.y,

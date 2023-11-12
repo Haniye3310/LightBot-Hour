@@ -224,7 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddaba64620e1a74297c05d204076b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onLevelClicked: {fileID: 11400000, guid: 366d770da16b44848967f0e638a4fa0c, type: 2}
+  _currentLevelNumber: {fileID: 11400000, guid: d8dd3683f4db7844ea7269db2b94f50c, type: 2}
+  _levels: {fileID: 11400000, guid: 706d8bcf27f868e46a3fd0409cbd6dae, type: 2}
   _cube: {fileID: 7468756960509782625, guid: 20b5a79fa5921944fac727271e547490, type: 3}
   _onRunButtonClicked: {fileID: 11400000, guid: 27c61ae1e2b6ae548a6fb322e3f81ce6, type: 2}
   _onMechanicInOptionsClicked: {fileID: 11400000, guid: 46fa4bd8bab10894aafc9ca84a23758c, type: 2}

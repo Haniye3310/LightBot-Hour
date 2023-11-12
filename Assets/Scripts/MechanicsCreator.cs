@@ -3,18 +3,17 @@ using UnityEngine.UI;
 
 public class MechanicsCreator : MonoBehaviour
 {
-    [SerializeField] private SOChannelLevelData _onLevelBtnClicked;
     [SerializeField] private Mechanic _mechanicPrefab;
+    [SerializeField] private LevelDataList _levels;
+    [SerializeField] private IntVariable _currentLevelNumber;
     private void Awake()
     {
-        _onLevelBtnClicked.Event.AddListener(OnLevelBtnClicked);
+        Init();
     }
-    private void OnDisable()
+
+    private void Init() 
     {
-        _onLevelBtnClicked.Event.AddListener(OnLevelBtnClicked);
-    }
-    private void OnLevelBtnClicked(LevelData levelData) 
-    {
+        LevelData levelData = _levels.List[_currentLevelNumber.Value - 1];
         for (int i = 0; i < levelData.AvailableMechanics.Length; i++) 
         {
             Mechanic.Instantiate(_mechanicPrefab,

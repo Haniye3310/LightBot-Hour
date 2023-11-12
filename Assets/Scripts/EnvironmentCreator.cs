@@ -2,19 +2,16 @@ using UnityEngine;
 
 public class EnvironmentCreator : MonoBehaviour
 {
-    [SerializeField] private SOChannelLevelData _onLevelBtnClicked;
+    [SerializeField] private IntVariable _currentLevelNumber;
+    [SerializeField] private LevelDataList _levels;
     [SerializeField] private Cube _cubePrefab;
     private void Awake()
     {
-        _onLevelBtnClicked.Event.AddListener(OnLevelBtnClicked);
+        Init();
     }
-    private void OnDisable()
+    private void Init() 
     {
-        _onLevelBtnClicked.Event.RemoveListener(OnLevelBtnClicked);
-
-    }
-    private void OnLevelBtnClicked(LevelData levelData) 
-    {
+        LevelData levelData = _levels.List[_currentLevelNumber.Value - 1];
         Vector3 pos = new Vector3(0, 0, 0);
         Vector3 scale = _cubePrefab.transform.localScale;
         for (int i = 0; i < levelData.EnvironmentList.Count; i++)

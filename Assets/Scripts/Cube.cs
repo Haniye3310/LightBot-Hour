@@ -32,4 +32,9 @@ public class Cube : MonoBehaviour
         if (_innerCube.GetComponentInChildren<MeshRenderer>().material.color == _blueMaterial.color) return true;
         return false;
     }
+    public bool IsLight() 
+    {
+        if (_innerCube.GetComponentInChildren<MeshRenderer>().material.color == _yellowMaterial.color) return true;
+        return false;
+    }
 }
