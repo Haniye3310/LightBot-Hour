@@ -9,9 +9,13 @@ public class Player : MonoBehaviour
     [SerializeField] private SOChannel _onRunButtonClicked;
     [SerializeField] private SOChannelMechanicData _onMechanicInOptionsClicked;
     [SerializeField] private SOChannelMechanicData _onMechanicInMainPanelClicked;
+    [SerializeField] SOChannel _OnPlayCompleted;
+    [SerializeField] SOChannel _OnRetryButtonClicked;
     private List<MechanicData> _movements = new List<MechanicData>();
+    private LevelData _levelData;
     private void Awake()
     {
+        _OnRetryButtonClicked.Event.AddListener(OnRetryButtonClicked);
         _onLevelClicked.Event.AddListener(OnLevelBtnClicked);
         _onRunButtonClicked.Event.AddListener(OnRunButtonClicked);
         _onMechanicInOptionsClicked.Event.AddListener(OnMechanicInOptionsClicked);
@@ -23,7 +27,11 @@ public class Player : MonoBehaviour
         _onRunButtonClicked.Event.RemoveListener(OnRunButtonClicked);
         _onMechanicInOptionsClicked.Event.RemoveListener(OnMechanicInOptionsClicked);
         _onMechanicInMainPanelClicked.Event.RemoveListener(OnMechanicInMainPanelClicked);
-
+        _OnRetryButtonClicked.Event.RemoveListener(OnRetryButtonClicked);
+    }
+    private void OnRetryButtonClicked() 
+    {
+        OnLevelBtnClicked(_levelData);
     }
     private void OnLevelBtnClicked(LevelData levelData) 
     {
@@ -34,6 +42,7 @@ public class Player : MonoBehaviour
         this.transform.rotation = Quaternion.Euler( this.transform.rotation.eulerAngles.x,
                                                     (int)levelData.StartingPlayerRotation, 
                                                     this.transform.rotation.eulerAngles.z);
+        _levelData = levelData;
     }
     private void OnMechanicInOptionsClicked(MechanicData mechanicData) 
     {
@@ -52,5 +61,6 @@ public class Player : MonoBehaviour
                 break;
             }
         }
+        _OnPlayCompleted.Event?.Invoke();
     }
 }

@@ -17,7 +17,6 @@ public class JumpMechanicData : MechanicData
         Vector3 jumpTarget = player.transform.position + player.transform.forward * jumpDistance + new Vector3(0f, yOffset, 0f);
 
         bool isValid = IsValidPos(new Vector3(jumpTarget.x, jumpTarget.y - _cubePrefab.transform.localScale.y, jumpTarget.z));
-        Debug.Log($"{isValid}");
         if (isValid) 
         {
             var tween = player.transform.DOJump(jumpTarget, jumpHeight, 1, jumpDuration);
