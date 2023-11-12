@@ -24,4 +24,8 @@ public class NextLevelButoon : MonoBehaviour
         }
         this.gameObject.SetActive(true);
     }
+    private void OnNextLevelButtonClicked() 
+    {
+        
+    }
 }

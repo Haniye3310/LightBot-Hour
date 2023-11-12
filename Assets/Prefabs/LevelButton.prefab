@@ -269,9 +269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e275028d69d1674fb940e8ba9471e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelData: {fileID: 11400000, guid: b2dcfa5208dfc2b4daff66aec982438f, type: 2}
   _levelBtn: {fileID: 8306462235317367521}
   _onLevelBtnClicked: {fileID: 11400000, guid: 366d770da16b44848967f0e638a4fa0c, type: 2}
+  _text: {fileID: 8379853323838609796}
 --- !u!114 &1518418024153982876
 MonoBehaviour:
   m_ObjectHideFlags: 0

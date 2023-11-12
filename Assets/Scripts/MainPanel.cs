@@ -15,12 +15,12 @@ public class MainPanel : MonoBehaviour
     }
     private void OnMechanicClicked(MechanicData mechanicData) 
     {
-        Mechanic mechanic = Mechanic.Instantiate(_mechanicPrefab,
-                                                 this.transform.position,
-                                                 Quaternion.identity,
-                                                 this.transform, 
-                                                 mechanicData,
-                                                 true);
+        Mechanic.Instantiate(_mechanicPrefab,
+                             this.transform.position,
+                             Quaternion.identity,
+                             this.transform, 
+                             mechanicData,
+                             true);
 
     }
 }

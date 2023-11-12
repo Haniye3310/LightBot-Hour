@@ -8,6 +8,7 @@ public class LevelData : ScriptableObject
     public Vector2Int StartingPlayerPosition;
     public PlayerRotation StartingPlayerRotation;
     public MechanicData[] AvailableMechanics;
+    public int LevelNumber;
 }
 public enum PlayerRotation
 {
