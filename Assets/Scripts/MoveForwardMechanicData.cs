@@ -6,11 +6,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MoveForwardMechanicData[Name]", menuName = "SO/MoveForwardMechanicData")]
 public class MoveForwardMechanicData : MechanicData
 {
-    public override Task Move(Player player)
+    public async override Task<bool> Move(Player player)
     {
-         var tween = player.transform.DOMove(player.transform.position + player.transform.forward * _cubePrefab.transform.localScale.x,
-                                0.1f
-                               );
-        return tween.Play().AsyncWaitForCompletion();
+        Vector3 targetPos = player.transform.position + player.transform.forward * _cubePrefab.transform.localScale.x;
+
+        bool isValid = IsValidPos(new Vector3(targetPos.x, targetPos.y - _cubePrefab.transform.localScale.y, targetPos.z));
+
+        if (isValid)
+        {
+            var tween = player.transform.DOMove(targetPos, 0.1f);
+            await tween.Play().AsyncWaitForCompletion();
+        }
+
+        return isValid;
     }
 }

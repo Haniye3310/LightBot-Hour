@@ -1,12 +1,14 @@
 using DG.Tweening;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "JumpMechanicData[Name]", menuName = "SO/JumpMechanicData")]
 public class JumpMechanicData : MechanicData
 {
-
-    public override Task Move(Player player)
+    public override async Task<bool> Move(Player player)
     {
         float jumpDistance = 1f;
         float yOffset = -_cubePrefab.transform.localScale.y; 
@@ -14,8 +16,14 @@ public class JumpMechanicData : MechanicData
         float jumpDuration = 1f;
         Vector3 jumpTarget = player.transform.position + player.transform.forward * jumpDistance + new Vector3(0f, yOffset, 0f);
 
-        var tween = player.transform.DOJump(jumpTarget, jumpHeight, 1, jumpDuration);
-        return tween.Play().AsyncWaitForCompletion();
+        bool isValid = IsValidPos(new Vector3(jumpTarget.x, jumpTarget.y - _cubePrefab.transform.localScale.y, jumpTarget.z));
+        if (isValid) 
+        {
+            var tween = player.transform.DOJump(jumpTarget, jumpHeight, 1, jumpDuration);
+            await tween.Play().AsyncWaitForCompletion();
+        }
+        return isValid;
+        
     }
 }
 

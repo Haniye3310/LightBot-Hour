@@ -47,7 +47,10 @@ public class Player : MonoBehaviour
     {
         for(int i = 0;i< _movements.Count;i++) 
         {
-            await _movements[i].Move(this);
+            if (false == await _movements[i].Move(this))
+            {
+                break;
+            }
         }
     }
 }
