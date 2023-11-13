@@ -232,3 +232,4 @@ MonoBehaviour:
   _onMechanicInMainPanelClicked: {fileID: 11400000, guid: 3d6dafa5a1ab2b847aa061f5655033de, type: 2}
   _OnPlayCompleted: {fileID: 11400000, guid: b14ace4750a6973468f94bf8e2342386, type: 2}
   _OnRetryButtonClicked: {fileID: 11400000, guid: cb7eca378a630494d9c91599f7a37502, type: 2}
+  _movements: {fileID: 11400000, guid: 3f4efc3ab75ba434fa0930db3d09d782, type: 2}

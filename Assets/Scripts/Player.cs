@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private SOChannelMechanicData _onMechanicInMainPanelClicked;
     [SerializeField] SOChannel _OnPlayCompleted;
     [SerializeField] SOChannel _OnRetryButtonClicked;
-    private List<MechanicData> _movements = new List<MechanicData>();
+    [SerializeField] private MechanicDataList _movements;
     private LevelData _levelData;
     private void Awake()
     {
@@ -54,17 +54,17 @@ public class Player : MonoBehaviour
     }
     private void OnMechanicInOptionsClicked(MechanicData mechanicData) 
     {
-        _movements.Add(mechanicData);
+        _movements.List.Add(mechanicData);
     }
     private void OnMechanicInMainPanelClicked(MechanicData mechanicData) 
     {
-        _movements.Remove(mechanicData);
+        _movements.List.Remove(mechanicData);
     }
     private async void OnRunButtonClicked() 
     {
-        for(int i = 0;i< _movements.Count;i++) 
+        for(int i = 0;i< _movements.List.Count;i++) 
         {
-            if (false == await _movements[i].Move(this))
+            if (false == await _movements.List[i].Move(this))
             {
                 break;
             }
