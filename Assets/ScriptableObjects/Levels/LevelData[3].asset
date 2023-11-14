@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnvironmentList:
   - Data: 0100000002000000
-  - Data: 0400000003000000
+  - Data: fcffffff03000000
   StartingPlayerPosition: {x: 0, y: 0}
   StartingPlayerRotation: 0
-  AvailableMechanics: []
+  AvailableMechanics:
+  - {fileID: 11400000, guid: 5d4d2b42b17248544afc870691d819f8, type: 2}
+  - {fileID: 11400000, guid: 6229fbf9645b7694089c710e3381f315, type: 2}
+  - {fileID: 11400000, guid: 1ece6d808897f0c49848a00931e780d1, type: 2}
+  - {fileID: 11400000, guid: 3e80415b926b7be47846b8db0bbce393, type: 2}
+  - {fileID: 11400000, guid: 7837bf2958526aa41aae1a2a9aadad33, type: 2}
   HasProcessPanel: 0
