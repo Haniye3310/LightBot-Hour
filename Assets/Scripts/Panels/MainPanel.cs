@@ -12,9 +12,9 @@ public class MainPanel : InstructionPanel
         _onProcessPanelClicked.Event.AddListener(OnProcessPanelClicked);
 
     }
-    protected override void OnDisable() 
+    protected override void OnDestroy() 
     {
-        base.OnDisable();
+        base.OnDestroy();
         _onProcessPanelClicked.Event.RemoveListener(OnProcessPanelClicked);
     }
     protected override void OnPanelClicked()

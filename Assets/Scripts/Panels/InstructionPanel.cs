@@ -16,7 +16,7 @@ public class InstructionPanel : MonoBehaviour
         _btn.onClick.AddListener(OnPanelClicked);
         _onMechanicInOptionsClicked.Event.AddListener(OnMechanicClicked);
     }
-    protected virtual void OnDisable()
+    protected virtual void OnDestroy()
     {
         _onMechanicInOptionsClicked.Event.RemoveListener(OnMechanicClicked);
         _btn.onClick.RemoveListener(OnPanelClicked);

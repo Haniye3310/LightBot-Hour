@@ -14,9 +14,9 @@ public class ProcessPanel : InstructionPanel
         this.gameObject.SetActive(_levels.List[_currentLevelNumber.Value -1].HasProcessPanel);
         _onMainPanelClicked.Event.AddListener(OnMainPanelClicked);
     }
-    protected override void OnDisable()
+    protected override void OnDestroy()
     {
-        base.OnDisable();
+        base.OnDestroy();
         _onMainPanelClicked.Event.RemoveListener(OnMainPanelClicked);
     }
     protected override void OnPanelClicked()

@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
         _onRunButtonClicked.Event.AddListener(OnRunButtonClicked);
         Init();
     }
-    private void OnDisable()
+    private void OnDestroy()
     {
         _onRunButtonClicked.Event.RemoveListener(OnRunButtonClicked);
         _OnRetryButtonClicked.Event.RemoveListener(OnRetryButtonClicked);

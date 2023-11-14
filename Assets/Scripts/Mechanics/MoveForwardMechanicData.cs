@@ -10,7 +10,8 @@ public class MoveForwardMechanicData : MechanicData
     {
         Vector3 targetPos = player.transform.position + player.transform.forward * _cubePrefab.transform.localScale.x;
 
-        bool isValid = IsValidPos(new Vector3(targetPos.x, targetPos.y - _cubePrefab.transform.localScale.y, targetPos.z));
+        bool isValid = (IsValidPos(new Vector3(targetPos.x, targetPos.y - _cubePrefab.transform.localScale.y, targetPos.z)))&&
+            (!IsValidPos(new Vector3(targetPos.x ,targetPos.y,targetPos.z)));
 
         if (isValid)
         {

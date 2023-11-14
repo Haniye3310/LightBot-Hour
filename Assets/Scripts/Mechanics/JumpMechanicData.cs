@@ -16,12 +16,17 @@ public class JumpMechanicData : MechanicData
         float jumpDuration = 1f;
         Vector3 jumpTarget = player.transform.position + player.transform.forward * jumpDistance + new Vector3(0f, yOffset, 0f);
 
-        bool isValid = IsValidPos(new Vector3(jumpTarget.x, jumpTarget.y - _cubePrefab.transform.localScale.y, jumpTarget.z));
-        if (!isValid)
+        bool isValid = false;
+        if(!IsValidPos(player.transform.position + player.transform.forward * jumpDistance)) 
+        {
+            isValid = IsValidPos(new Vector3(jumpTarget.x, jumpTarget.y - _cubePrefab.transform.localScale.y, jumpTarget.z));
+        }
+        else 
         {
             isValid = IsValidPos(new Vector3(jumpTarget.x, jumpTarget.y + _cubePrefab.transform.localScale.y, jumpTarget.z));
             jumpTarget = player.transform.position + player.transform.forward * jumpDistance + new Vector3(0f, -yOffset, 0f);
         }
+
         if (isValid) 
         {
             var tween = player.transform.DOJump(jumpTarget, jumpHeight, 1, jumpDuration);

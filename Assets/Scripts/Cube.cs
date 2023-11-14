@@ -12,7 +12,7 @@ public class Cube : MonoBehaviour
     {
         _onLightClicked.Event.AddListener(Light);
     }
-    private void OnDisable()
+    private void OnDestroy()
     {
         _onLightClicked.Event.RemoveListener(Light);
     }

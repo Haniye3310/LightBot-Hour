@@ -13,7 +13,7 @@ public class Level : MonoBehaviour
     {
         _levelBtn.onClick.AddListener(Level_OnClick);
     }
-    private void OnDisable()
+    private void OnDestroy()
     {
         _levelBtn.onClick.RemoveListener(Level_OnClick);
     }
