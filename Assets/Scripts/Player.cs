@@ -8,25 +8,20 @@ public class Player : MonoBehaviour
     [SerializeField] private LevelDataList _levels;
     [SerializeField] private Cube _cube;
     [SerializeField] private SOChannel _onRunButtonClicked;
-    [SerializeField] private SOChannelMechanicData _onMechanicInOptionsClicked;
-    [SerializeField] private SOChannelMechanicData _onMechanicInMainPanelClicked;
     [SerializeField] SOChannel _OnPlayCompleted;
     [SerializeField] SOChannel _OnRetryButtonClicked;
-    [SerializeField] private MechanicDataList _movements;
     private LevelData _levelData;
+    [SerializeField] private MechanicDataList _mainMovements;
+
     private void Awake()
     {
         _OnRetryButtonClicked.Event.AddListener(OnRetryButtonClicked);
         _onRunButtonClicked.Event.AddListener(OnRunButtonClicked);
-        _onMechanicInOptionsClicked.Event.AddListener(OnMechanicInOptionsClicked);
-        _onMechanicInMainPanelClicked.Event.AddListener(OnMechanicInMainPanelClicked);
         Init();
     }
     private void OnDisable()
     {
         _onRunButtonClicked.Event.RemoveListener(OnRunButtonClicked);
-        _onMechanicInOptionsClicked.Event.RemoveListener(OnMechanicInOptionsClicked);
-        _onMechanicInMainPanelClicked.Event.RemoveListener(OnMechanicInMainPanelClicked);
         _OnRetryButtonClicked.Event.RemoveListener(OnRetryButtonClicked);
     }
     private void OnRetryButtonClicked() 
@@ -52,19 +47,12 @@ public class Player : MonoBehaviour
                                                     this.transform.rotation.eulerAngles.z);
         _levelData = levelData;
     }
-    private void OnMechanicInOptionsClicked(MechanicData mechanicData) 
-    {
-        _movements.List.Add(mechanicData);
-    }
-    private void OnMechanicInMainPanelClicked(MechanicData mechanicData) 
-    {
-        _movements.List.Remove(mechanicData);
-    }
+
     private async void OnRunButtonClicked() 
     {
-        for(int i = 0;i< _movements.List.Count;i++) 
+        for(int i = 0;i< _mainMovements.List.Count;i++) 
         {
-            if (false == await _movements.List[i].Move(this))
+            if (false == await _mainMovements.List[i].Move(this))
             {
                 break;
             }

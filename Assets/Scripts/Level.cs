@@ -20,7 +20,6 @@ public class Level : MonoBehaviour
 
     private void Level_OnClick()
     {
-        Debug.Log("levelonclick");
         _currentLevelNumber.Value = _level;
         SceneManager.LoadScene(1);
     }

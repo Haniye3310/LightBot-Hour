@@ -1,26 +1,30 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class MainPanel : MonoBehaviour
+public class MainPanel : InstructionPanel
 {
-    [SerializeField] private Mechanic _mechanicPrefab;
-    [SerializeField] private SOChannelMechanicData _onMechanicInOptionsClicked;
-    private void Awake()
+    [SerializeField] private SOChannel _onProcessPanelClicked;
+    [SerializeField] private SOChannel _onMainPanelClicked;
+    protected override void Awake()
     {
-        _onMechanicInOptionsClicked.Event.AddListener(OnMechanicClicked);
-    }
-    private void OnDisable()
-    {
-        _onMechanicInOptionsClicked.Event.RemoveListener(OnMechanicClicked);
-    }
-    private void OnMechanicClicked(MechanicData mechanicData) 
-    {
-        Mechanic.Instantiate(_mechanicPrefab,
-                             this.transform.position,
-                             Quaternion.identity,
-                             this.transform, 
-                             mechanicData,
-                             true);
+        base.Awake();
+        _onProcessPanelClicked.Event.AddListener(OnProcessPanelClicked);
 
+    }
+    protected override void OnDisable() 
+    {
+        base.OnDisable();
+        _onProcessPanelClicked.Event.RemoveListener(OnProcessPanelClicked);
+    }
+    protected override void OnPanelClicked()
+    {
+        base.OnPanelClicked();
+        SetActive(true);
+        _onMainPanelClicked.Event?.Invoke();
+    }
+    private void OnProcessPanelClicked() 
+    {
+        SetActive(false);
     }
 }

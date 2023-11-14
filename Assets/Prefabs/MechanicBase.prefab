@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 8822042843420714663}
   - component: {fileID: 2067525085182762717}
   - component: {fileID: 5902824164923810953}
-  - component: {fileID: 395039503819371610}
   m_Layer: 5
-  m_Name: MechanicButton
+  m_Name: MechanicBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,19 +120,3 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &395039503819371610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6827235684581310914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1e7f6a9cad1f974fa86fd4031c6f581, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _image: {fileID: 2067525085182762717}
-  _btn: {fileID: 5902824164923810953}
-  _onMechanicInOptionsClicked: {fileID: 11400000, guid: 46fa4bd8bab10894aafc9ca84a23758c, type: 2}
-  _onMechanicInMainPanelClicked: {fileID: 11400000, guid: 3d6dafa5a1ab2b847aa061f5655033de, type: 2}

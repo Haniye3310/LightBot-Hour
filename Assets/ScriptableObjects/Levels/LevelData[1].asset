@@ -25,3 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5d4d2b42b17248544afc870691d819f8, type: 2}
   - {fileID: 11400000, guid: 3e80415b926b7be47846b8db0bbce393, type: 2}
   - {fileID: 11400000, guid: c83a0ed1205d2c3498751f5473e8e4e3, type: 2}
+  HasProcessPanel: 1

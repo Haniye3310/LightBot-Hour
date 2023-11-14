@@ -228,8 +228,6 @@ MonoBehaviour:
   _levels: {fileID: 11400000, guid: 706d8bcf27f868e46a3fd0409cbd6dae, type: 2}
   _cube: {fileID: 7468756960509782625, guid: 20b5a79fa5921944fac727271e547490, type: 3}
   _onRunButtonClicked: {fileID: 11400000, guid: 27c61ae1e2b6ae548a6fb322e3f81ce6, type: 2}
-  _onMechanicInOptionsClicked: {fileID: 11400000, guid: 46fa4bd8bab10894aafc9ca84a23758c, type: 2}
-  _onMechanicInMainPanelClicked: {fileID: 11400000, guid: 3d6dafa5a1ab2b847aa061f5655033de, type: 2}
   _OnPlayCompleted: {fileID: 11400000, guid: b14ace4750a6973468f94bf8e2342386, type: 2}
   _OnRetryButtonClicked: {fileID: 11400000, guid: cb7eca378a630494d9c91599f7a37502, type: 2}
-  _movements: {fileID: 11400000, guid: 3f4efc3ab75ba434fa0930db3d09d782, type: 2}
+  _mainMovements: {fileID: 11400000, guid: 3f4efc3ab75ba434fa0930db3d09d782, type: 2}
